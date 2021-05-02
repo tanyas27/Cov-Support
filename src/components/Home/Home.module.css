@@ -1,0 +1,92 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 84.4vh;
+}
+
+.home .content {
+  width: 45%;
+  margin: 10%;
+}
+
+.home h1 {
+  font-size: 3.1em;
+  font-family: "New Tegomin", serif;
+}
+.home h3 {
+  font-size: 1.66em;
+  font-style: italic;
+  font-family: "Nanum Brush Script", cursive;
+  color: #f39489;
+}
+
+.home img {
+  width: 28%;
+}
+
+.home .button {
+  float: left;
+  text-decoration: none;
+  font-size: 1.36em;
+  background: #0808;
+  position: relative;
+  font-family: "Nanum Brush Script", cursive;
+  padding: 15px 20px;
+  margin: 10px 25px;
+  border-radius: 32px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.home .button:hover {
+  opacity: 0.77;
+  color: #fff;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+.home .button:active {
+  opacity: 1;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+  color: #080808;
+}
+
+@media (max-width: 599px) {
+  /* .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 84.4vh;
+  } */
+  .home img {
+    width: 40%;
+  }
+
+  .home .content {
+    width: 45%;
+    margin: 20px 30px;
+  }
+
+  .home h1 {
+    font-size: 1.96em;
+  }
+
+  .home h3 {
+    font-size: 1.36em;
+  }
+
+  .home .button {
+    font-size: 1.26em;
+    background: #0808;
+    position: relative;
+    font-family: "Nanum Brush Script", cursive;
+    padding: 5px 10px;
+    margin: 5px 15px;
+  }
+}

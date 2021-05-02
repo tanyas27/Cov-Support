@@ -1,0 +1,45 @@
+.donate {
+  text-align: center;
+  min-height: 82vh;
+}
+
+.donate p {
+  margin: 0 20%;
+}
+
+.donate hr {
+  width: 60%;
+}
+
+.donate a {
+  text-decoration: underline;
+  color: #0808;
+}
+
+.donate li {
+  margin: 10px 20px;
+  text-align: left;
+}
+
+.donate li p {
+  color: rgb(43, 43, 43);
+}
+
+@media (max-width: 599px) {
+  .donate h2 {
+    font-size: 1.5em;
+  }
+
+  .donate p {
+    font-size: 0.97em;
+    margin: 0 10%;
+  }
+
+  .donate li {
+    font-size: 0.87em;
+  }
+
+  .donate li h4 {
+    font-size: 1.2em;
+  }
+}
