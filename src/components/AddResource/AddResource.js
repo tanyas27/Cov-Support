@@ -47,7 +47,7 @@ function AddResource(props) {
             alert("Add City and Resource Type ");
         } 
         else{
-            axios.post( 'https://cov-cure-default-rtdb.asia-southeast1.firebasedatabase.app/Resources.json/city="Adilabad"', form )
+            axios.post( 'https://cov19-help-default-rtdb.firebaseio.com//Resources.json', form )
             .then( response => {
                 setShow(true);
                 setTimeout(()=>{window.location.reload();},2500);

@@ -29,7 +29,7 @@ function FindHelp() {
             alert("Select City and Resource Type ");
         }
         else{
-            axios.get("https://cov-cure-default-rtdb.asia-southeast1.firebasedatabase.app/Resources.json")
+            axios.get("https://cov19-help-default-rtdb.firebaseio.com/Resources.json")
             .then(res => {
                 let fetchData = [];
                 for(let key in res.data){
@@ -42,7 +42,7 @@ function FindHelp() {
                 setData(fetchData);
             });
         } 
-
+        
     }
 
   return (
@@ -55,6 +55,7 @@ function FindHelp() {
             </div>
         </div>
         <button onClick={fetchData}><span>Search</span> <img src={search} alt="search-icon"/></button>
+        {data}
     </div>
   );
 }
