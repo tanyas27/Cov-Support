@@ -1,45 +1,46 @@
 import classes from './FindHelp.module.css';
 import Select from 'react-select';
 import {Cities} from '../../Utils/Cities';
-import {Resources} from '../../Utils/Resources';
 import { useState } from 'react';
-import axios from 'axios';
-import search from '../../Utils/images/find.png'
+import search from '../../Utils/images/find.png';
+import {db} from '../../database/config';
+import Card from '../Card/Card';
+import ResourceFilter from '../ResourceFilter/ResourceFilter';
 
 function FindHelp() {
     const [city, setCity] = useState("");
     const [field, setField] = useState("");
-    const [data, setData] = useState([]);
+    const [data, setData] = useState();
 
     const cities = Cities.map((element) => {
         return { label:element, value: element }
     });
 
-    const res = Resources.map((item,idx) => {
-        return (<span key={idx}>
-            <input className={[classes.hidden, classes.radioLabel].join(' ')} type="radio" name="accept-offers" id={item.label} onClick={() => {setField(item.label)}}/>
-            <label className={classes.buttonLabel} htmlFor={item.label}>
-            <span>{item.label}</span>
-            </label>
-        </span>);
-    });
+    const filterHandler = (val) => {
+        setField(val);
+    }
 
     const fetchData = () => {
         if(field === "" || city === "") {
             alert("Select City and Resource Type ");
         }
         else{
-            axios.get("https://cov19-help-default-rtdb.firebaseio.com/Resources.json")
-            .then(res => {
-                let fetchData = [];
-                for(let key in res.data){
-                    fetchData.push({
-                        ...res.data[key],
-                        id: key
-                    })
-                }
-                fetchData = fetchData.filter((item) => (item.city === city && item.field === field) );
-                setData(fetchData);
+            db.ref(`Resources/${city}/${field}`).on("value", snapshot => {
+                let resData = [];
+                snapshot.forEach(snap => {
+                    let value  = snap.val();
+                    resData.push(<Card
+                        city = {value.city}
+                        description = {value.description}
+                        field = {value.field}
+                        name={value.name}
+                        phone={value.phone}
+                        source={value.source}
+                        verified={value.verified}
+                    />);
+                });
+                setData(resData);
+                
             });
         } 
         
@@ -50,12 +51,12 @@ function FindHelp() {
         <Select options={cities} className={classes.select} onChange={(val) => setCity(val.label)} placeholder="Enter your city..." />
         <div className={classes.container}>
             Select help :
-            <div className={classes.buttonWrap}>
-                {res}
-            </div>
+            <ResourceFilter click={filterHandler}/>
         </div>
         <button onClick={fetchData}><span>Search</span> <img src={search} alt="search-icon"/></button>
-        {data}
+        <div className={classes.cards}>
+            { data ? (data.length === 0) ? " Sorry ! No results found in your area. I am trying to add as many resources as possible! " : data : null }
+        </div>
     </div>
   );
 }

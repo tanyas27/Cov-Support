@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <NavLink to="/" exact> COV19 <span>HELP</span></NavLink>
+        <NavLink to="/" exact> COV <span>SUPPORT</span></NavLink>
         <NavLink to="/donate" className="button"><span className="linkText">Donate</span> <img src={donate} alt="donate-icon"/></NavLink>
         <a href="https://covid19india.org" className="button"><span className="linkText">Covid19 tracker </span> <img src={cov} alt="cov-tracker"/></a>
       </header>

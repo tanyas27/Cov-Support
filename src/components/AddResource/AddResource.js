@@ -1,9 +1,9 @@
 import classes from './AddResource.module.css';
 import Select from 'react-select';
 import {Cities} from '../../Utils/Cities';
-import {Resources} from '../../Utils/Resources';
+import ResourceFilter from '../ResourceFilter/ResourceFilter';
 import { useState } from 'react';
-import axios from 'axios';
+import {db} from '../../database/config';
 
 function AddResource(props) {
     const [form, setForm] = useState({
@@ -22,14 +22,9 @@ function AddResource(props) {
         return { label:element, value: element }
     });
 
-    const res = Resources.map((item,idx) => {
-        return (<span key={idx}>
-            <input className={[classes.hidden, classes.radioLabel].join(' ')} type="radio" name="resource" id={item.label} onClick={() => {setForm({...form, "field": item.label})}}/>
-            <label className={classes.buttonLabel} htmlFor={item.label}>
-            <span>{item.label}</span>
-            </label>
-        </span>);
-    });
+    const filterHandler = (val) => {
+        setForm({...form, "field": val});
+    }
 
     const handleInput = (event) => {
         const target = event.target;
@@ -47,11 +42,14 @@ function AddResource(props) {
             alert("Add City and Resource Type ");
         } 
         else{
-            axios.post( 'https://cov19-help-default-rtdb.firebaseio.com//Resources.json', form )
-            .then( response => {
+            db.ref(`Resources/${form.city}/${form.field}`)
+            .push({
+            ...form,
+            date: new Date()
+            })
+            .then(_ => {
                 setShow(true);
                 setTimeout(()=>{window.location.reload();},2500);
-                
             });
         }
     }
@@ -63,9 +61,7 @@ function AddResource(props) {
         </div>
         <div className={classes.container}>
             <p>Select resource type :</p>
-            <div className={classes.buttonWrap}>
-                {res}
-            </div>
+            <ResourceFilter click={filterHandler}/>
         </div>
         <form onSubmit={submitForm} >
             <div className={classes.ty} style={{display: show ? "block" : "none"}}>Thankyou for doing your bit in helping others !</div>

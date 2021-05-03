@@ -1,0 +1,27 @@
+.Card {
+  width: 250px;
+  height: fit-content;
+  margin: 10px 40px;
+  background: #f3f0f1;
+  border-bottom-right-radius: 0.97em;
+  border-top-left-radius: 0.97em;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Card .title {
+  color: #f39489;
+}
+
+.Card .head {
+  background: #f39489;
+  color: #fff;
+  height: 25%;
+  text-align: center;
+  border-top-left-radius: 0.97em;
+  border-top-left-radius: 0.97em;
+}
+
+.Card .body {
+  padding: 10px;
+}
