@@ -13,8 +13,8 @@ function Card(props) {
         <span className={classes.title}>Phone:</span> {props.phone} <br/>
         <span className={classes.title}>Other Information:</span> {props.description}<br/>
         <span className={classes.title}>City:</span>{props.city}<br/>
-        <span className={classes.title}>Source:</span> {props.source}<br/>
         <span className={classes.title}>Verified:</span>{props.verified ? <img src={yes} alt="verified"/> : <img src={no} alt="not verified"/>}<br/>
+        <span className={classes.title}>Source:</span> {props.source}
       </div>
     </div>
   );

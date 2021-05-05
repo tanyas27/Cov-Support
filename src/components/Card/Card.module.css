@@ -1,5 +1,6 @@
 .Card {
   width: 250px;
+  display: inline-block;
   height: fit-content;
   margin: 10px 40px;
   background: #f3f0f1;

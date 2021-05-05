@@ -1,5 +1,5 @@
 .findHelp {
-  min-height: 80vh;
+  min-height: 77.4vh;
 }
 
 .findHelp .select {
@@ -36,12 +36,14 @@
 
 .findHelp .cards {
   margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  width: 100%;
 }
 
 @media (max-width: 599px) {
+  .findHelp {
+    min-height: 80.4vh;
+  }
+
   .findHelp .container {
     display: block;
     text-align: center;
@@ -72,5 +74,6 @@
 
   .findHelp .cards {
     flex-direction: column;
+    justify-content: center;
   }
 }

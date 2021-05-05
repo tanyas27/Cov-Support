@@ -1,9 +1,9 @@
-import classes from './AddResource.module.css';
-import Select from 'react-select';
-import {Cities} from '../../Utils/Cities';
-import ResourceFilter from '../ResourceFilter/ResourceFilter';
 import { useState } from 'react';
+import {Cities} from '../../Utils/Cities';
 import {db} from '../../database/config';
+import ResourceFilter from '../ResourceFilter/ResourceFilter';
+import Select from 'react-select';
+import classes from './AddResource.module.css';
 
 function AddResource(props) {
     const [form, setForm] = useState({
@@ -17,10 +17,6 @@ function AddResource(props) {
     });
 
     const [show, setShow] = useState(false);
-
-    const cities = Cities.map((element) => {
-        return { label:element, value: element }
-    });
 
     const filterHandler = (val) => {
         setForm({...form, "field": val});
@@ -65,7 +61,7 @@ function AddResource(props) {
         </div>
         <form onSubmit={submitForm} >
             <div className={classes.ty} style={{display: show ? "block" : "none"}}>Thankyou for doing your bit in helping others !</div>
-            <Select options={cities} className={classes.select} onChange={(val) => setForm({...form, "city":val.label})} placeholder="Enter your city..."/>
+            <Select options={Cities} className={classes.select} onChange={(val) => setForm({...form, "city":val.label})} placeholder="Enter your city..."/>
             <input className="form-control" name="name" placeholder="Contact Person..." onBlur={e => handleInput(e)} required/>
             <input className="form-control" name="phone" type="tel" pattern="[0-9]{10}" onBlur={e => handleInput(e)} placeholder="10 Digit Contact Number : [123 456 7890]" required/>
             <textarea className="form-control" rows="3" name="description" onBlur={e => handleInput(e)}placeholder="Description / Other Info..."></textarea>

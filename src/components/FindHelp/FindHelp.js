@@ -1,20 +1,16 @@
+import { useState } from 'react';
+import {Cities} from '../../Utils/Cities';
+import {db} from '../../database/config';
+import search from '../../Utils/images/find.png';
+import Card from '../Card/Card';
 import classes from './FindHelp.module.css';
 import Select from 'react-select';
-import {Cities} from '../../Utils/Cities';
-import { useState } from 'react';
-import search from '../../Utils/images/find.png';
-import {db} from '../../database/config';
-import Card from '../Card/Card';
 import ResourceFilter from '../ResourceFilter/ResourceFilter';
 
 function FindHelp() {
     const [city, setCity] = useState("");
     const [field, setField] = useState("");
     const [data, setData] = useState();
-
-    const cities = Cities.map((element) => {
-        return { label:element, value: element }
-    });
 
     const filterHandler = (val) => {
         setField(val);
@@ -40,7 +36,6 @@ function FindHelp() {
                     />);
                 });
                 setData(resData);
-                
             });
         } 
         
@@ -48,7 +43,7 @@ function FindHelp() {
 
   return (
     <div className={classes.findHelp}>
-        <Select options={cities} className={classes.select} onChange={(val) => setCity(val.label)} placeholder="Enter your city..." />
+        <Select options={Cities} className={classes.select} onChange={(val) => setCity(val.label)} placeholder="Enter your city..." />
         <div className={classes.container}>
             Select help :
             <ResourceFilter click={filterHandler}/>

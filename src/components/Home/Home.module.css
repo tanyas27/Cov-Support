@@ -58,12 +58,9 @@
 }
 
 @media (max-width: 599px) {
-  /* .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 84.4vh;
-  } */
+  .home {
+    height: 85vh;
+  }
   .home img {
     width: 40%;
   }
