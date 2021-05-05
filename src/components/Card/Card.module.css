@@ -26,3 +26,8 @@
 .Card .body {
   padding: 10px;
 }
+
+.Card .copy {
+  border-radius: 0.2em;
+  font-size: 0.9em;
+}
