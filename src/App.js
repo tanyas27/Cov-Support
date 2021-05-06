@@ -4,7 +4,8 @@ import './App.css';
 import Home from './components/Home/Home';
 import Spinner from './components/Spinner/Spinner';
 import donate from './Utils/images/food-donation.png';
-import cov from './Utils/images/coronavirus.png';
+import './preview.png';
+//import cov from './Utils/images/coronavirus.png';
 //import support from './Utils/images/coffee.webp';
 
 const Donate = React.lazy(() => import('./components/Donate/Donate'));

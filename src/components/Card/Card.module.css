@@ -1,8 +1,7 @@
 .Card {
   width: 250px;
-  display: inline-block;
-  height: fit-content;
-  margin: 10px 40px;
+  min-height: 300px;
+  margin: 20px 45px;
   background: #f3f0f1;
   border-bottom-right-radius: 0.97em;
   border-top-left-radius: 0.97em;
@@ -17,7 +16,7 @@
 .Card .head {
   background: #f39489;
   color: #fff;
-  height: 25%;
+  height: 65px;
   text-align: center;
   border-top-left-radius: 0.97em;
   border-top-left-radius: 0.97em;
