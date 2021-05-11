@@ -4,7 +4,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Spinner from './components/Spinner/Spinner';
 import donate from './Utils/images/food-donation.png';
-import './preview.png';
+import github from './Utils/images/github.png';
 //import cov from './Utils/images/coronavirus.png';
 //import support from './Utils/images/coffee.webp';
 
@@ -42,6 +42,7 @@ function App() {
       </Suspense>
       
       <footer>
+        <a href="https://github.com/tanyas27"><img src={github} alt="github"/></a>
         {/* Support my work by buying me a coffee here ~ <img className="supportMe" src={support} alt="click here to support the developer"/> */}
       </footer>
     </div>

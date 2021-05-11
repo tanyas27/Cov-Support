@@ -43,7 +43,7 @@
 
 @media (max-width: 599px) {
   .findHelp {
-    min-height: 80.4vh;
+    min-height: 80vh;
   }
 
   .findHelp .container {

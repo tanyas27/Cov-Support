@@ -547,7 +547,13 @@ export const Cities =[{
  }, {
    label: "Gaya",
    value: "Gaya"
- }, {
+ },{
+  label: "Ghaziabad",
+  value: "Ghaziabad"
+},{
+  label: "Ghazipur",
+  value: "Ghazipur"
+},{
    label: "Giridih",
    value: "Giridih"
  }, {
